@@ -1,0 +1,27 @@
+plugins {
+	id 'cpp'
+}
+
+model {
+  components {
+    cgiWebUI(NativeExecutableSpec) {
+      sources {
+				cpp {
+					source {
+						srcDirs "src/main/cpp", "src/libs/"
+						include "**/*.cpp", "**/*.c"
+					}
+					exportedHeaders {
+						srcDirs "src/main/include", "src/libs/"
+					}
+				}
+      }
+
+			binaries.all {
+				cppCompiler.args '-pthread'
+        linker.args '-lpthread'
+			}
+
+    }
+  }
+}
