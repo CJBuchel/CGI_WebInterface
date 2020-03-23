@@ -33,7 +33,7 @@ int initServer(int port) {
 
   // Set http server options
   mg_set_protocol_http_websocket(nc);
-  s_http_server_opts.document_root = ".",
+  s_http_server_opts.document_root = "../../../page/", // Directed to page directory
   s_http_server_opts.enable_directory_listing = "yes";
 
   for(;;) {
